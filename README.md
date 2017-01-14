@@ -1,5 +1,5 @@
 #sumk-http-demo
-本工程用于展示sumk-http和sumk-orm的最基础功能。用html模拟移动端的接口调用。<BR>
+本工程用于展示[sumk](https://github.com/youtongluan/sumk)的http和orm的最基础功能。用html模拟移动端的接口调用。<BR>
 本人不做前端很久了，界面很丑，将就着看吧^_^
 
 ###项目搭建：
