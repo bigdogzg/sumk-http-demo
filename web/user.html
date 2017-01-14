@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh">
+ <head>
+  <meta charset="UTF-8">
+  <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+  <title>接口交互</title>
+  <script type="text/javascript">
+  var sid; //这个变量保存的，实际上就是sessionid，如果有多张页面，要用cookie等方法，保存这个值
+  function login(){
+	 var username=$('#username').val();
+	 var password=$('#password').val();
+	//登陆的参数是传统类型的，其他都是json类型的。登陆比较特殊
+	 $.ajax({
+	     type: 'POST',
+	     url: 'login?username='+username+'&password='+password,
+	     cache:false,
+	     dataType: "text", 
+	     data: '',
+	     success: function(data,status,xhr){
+			 sid=xhr.getResponseHeader("sid");  //相当于sessionid
+	         alert('登陆成功');
+		},
+		error:function(data){
+			 alert("登陆失败："+data.responseText) ;
+			 return;
+		}
+	});
+
+  }
+
+   function userInfo(){
+	 if(!sid){
+		 alert('您还未登陆');
+		 return;
+	 }
+	 
+	 $.ajax({
+	     type: 'POST',
+	     url: 'webserver?act=userInfo' ,
+	     cache:false,
+	     dataType: "text",
+		 headers : {'sid':sid},
+	     data: '',
+	     success: function(data){
+	         alert('用户信息:'+data);
+		 },
+		 error:function(data){
+			 alert("获取用户信息失败："+data.responseText) ;
+			 return;
+		}
+	});
+
+  }
+  </script>
+ </head>
+ <body align="center" style="text-align:center;">
+ <div style="height:150px">&nbsp;</div>
+	<div style="width:300px; margin:0 auto">
+  	 <table width="width:100%">
+	 <tr>
+		<td>用户名</td>
+		<td><input type="text" id="username" value="admin"></td>
+	 </tr>
+	 <tr>
+		<td>密码</td>
+		<td><input type="text" id="password" value="123456"></td>
+	 </tr>
+	 <tr>
+		<td colspan="2"><button onclick="login()">&nbsp;登陆&nbsp;</button>&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="userInfo()">获取用户信息</button></td>
+	 </tr>
+	 </table>
+	 </div>
+ </body>
+</html>

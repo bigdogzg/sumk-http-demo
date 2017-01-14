@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh">
+ <head>
+  <meta charset="UTF-8">
+  <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+  <title>接口交互</title>
+  <script type="text/javascript">
+  var id; //这个变量保存的，实际上就是sessionid，如果有多张页面，要用cookie等方法，保存这个值
+  function insert(){
+	 var name=$('#name').val();
+	 var age=parseInt($('#age').val());
+	//登陆的参数是传统类型的，其他都是json类型的。登陆比较特殊
+	 $.ajax({
+	     type: 'POST',
+	     url: 'webserver?act=insert',
+	     cache:false,
+	     dataType: "text", 
+	     data: "data="+JSON.stringify({'user':{'name':name,'age':age}}),
+	     success: function(data){
+			 $("#id").val(data); 
+	         alert('插入成功，点击查询就可以查询刚才插入的记录');
+		},
+		error:function(data){
+			 alert("插入失败："+data.responseText) ;
+			 return;
+		}
+	});
+
+  }
+
+   function query(){
+	 if(!$("#id").val()){
+		 alert('请输入id');
+		 return;
+	 }
+	 
+	 $.ajax({
+	     type: 'POST',
+	     url: 'webserver?act=query' ,
+	     cache:false,
+	     dataType: "json",
+	     data: "data="+JSON.stringify({'id':$("#id").val()}),
+	     success: function(data){
+	         $("#name2").val(data.name);
+			 $("#age2").val(data.age);
+		 },
+		 error:function(data){
+			 alert("查询失败："+data.responseText) ;
+			 return;
+		}
+	});
+
+  }
+  </script>
+ </head>
+ <body align="center" style="text-align:center;">
+ <div style="height:50px;color:red">本人不做前端很久了，界面很丑，将就着看吧^_^</div>
+	<div id="insert_div" style="width:500px; margin:0 auto">
+  	 <table width="width:100%">
+	 <tr align="left">
+		<td>名字(name)</td>
+		<td><input type="text" id="name" value="张三"></td>
+	 </tr>
+	 <tr align="left">
+	   <td>年龄(age)</td>
+		<td><input type="text" id="age" value="15"></td>
+	 </tr>
+	 <tr>
+		<td colspan="2"><button onclick="insert()">&nbsp;插入&nbsp;</button></td>
+	 </tr>
+	 </table>
+	 </div>
+
+	 <div style="height:50px;color:red;margin-top:50px;margin-left:-150px">根据id进行查询操作</div>
+	 <div id="query_div" style="width:500px; margin:0 auto">
+  	 <table align="left" width="width:100%">
+	 <tr align="left">
+		<td>id</td>
+		<td><input type="text" id="id"><button onclick="query()">查询</button></td>
+	 </tr>
+	 <tr align="left">
+		<td>名字(name)</td>
+		<td><input type="text" id="name2"></td>
+	 </tr>
+	 <tr align="left">
+	 	<td>年龄(age)</td>
+		<td><input type="text" id="age2"></td>
+	 </tr>
+	 </table>
+	 </div>
+ </body>
+</html>
