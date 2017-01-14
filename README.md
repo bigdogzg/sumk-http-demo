@@ -11,7 +11,7 @@
 ###app.properties文件说明：
 1. sumk.ioc：需要被ioc扫描的包，会解析@Bean、@Inject、@Table等注解（必须）
 1. http：需要扫描@Web、@Login等http注解的包（必须，否则就不会启动web服务）
-1. http.port：http的端口号（可选，默认8080）
+1. http.port：http的端口号（必须）
 1. http.resource：静态资源的路径，既可以是相对路径，也可以是绝对路径。在正式环境上，推荐使用绝对路径。因为相对路径会受部署环境影响（可选）
 
 ###jar包说明：
