@@ -13,6 +13,7 @@
 
 ###改为tomcat项目：
 如果你想把本项目放置在tomcat容器下，可采用以下步骤进行迁移(不需要上述的那些步骤）:<BR>
+
 1. 在mysql客户端执行test.sql文件，创建demouser表，以便测试
 1. 创建一个普通tomcat项目，文件编码是UTF-8
 1. 将src文件夹下的文件，复制到tomcat项目中
