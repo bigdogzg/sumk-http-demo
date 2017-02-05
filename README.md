@@ -1,6 +1,7 @@
 #sumk-http-demo
 本工程用于展示sumk-http和sumk-orm的最基础功能。用html模拟移动端的接口调用。
-本工程默认为普通java项目，用内置的jetty容器，提供http功能。如果你喜欢tomcat方式，请参考"tomcat项目搭建"
+本工程是普通java项目，使用内置的jetty容器提供http功能。
+如果你喜欢tomcat方式，请参考"改为tomcat项目"
 <BR>
 本人不做前端很久了，界面很丑，将就着看吧^_^
 
@@ -10,8 +11,8 @@
 1. 在src/db/sumk.ini中配置数据库的地址、用户名、密码。
 1. 执行com.test.Main类，启动web服务器。sumk内置了jetty，不需要tomcat。
 
-###tomcat项目搭建：
-如果你想把本项目放置在tomcat容器下，可采用以下步骤进行迁移
+###改为tomcat项目：
+如果你想把本项目放置在tomcat容器下，可采用以下步骤进行迁移(不需要上述的那些步骤）:<BR>
 1. 在mysql客户端执行test.sql文件，创建demouser表，以便测试
 1. 创建一个普通tomcat项目，文件编码是UTF-8
 1. 将src文件夹下的文件，复制到tomcat项目中
