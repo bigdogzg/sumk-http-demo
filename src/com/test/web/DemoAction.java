@@ -1,7 +1,5 @@
 package com.test.web;
 
-import java.util.Map;
-
 import org.yx.bean.Box;
 import org.yx.db.DB;
 import org.yx.exception.BizException;
@@ -34,7 +32,7 @@ public class DemoAction {
 	//获取当前用户信息
 	@Web
 	public Object userInfo() {
-		return HttpSessionHolder.getUserObject(Map.class);
+		return HttpSessionHolder.getUserObject(DemoSessionObject.class);
 	}
 
 }

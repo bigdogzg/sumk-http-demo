@@ -24,8 +24,10 @@ public class LoginServlet extends AbstractSessionFilter {
 //			return LoginObject.error("验证码错误");
 //		}
 		if ("admin".equals(user) && "123456".equals(password)) {
-			Map<String,Object> map=SBuilder.map("name", "admin").put("login", DateUtils.toDateTimeString(new Date())).toMap();
-			this.userSession().setSession(token, map);
+			DemoSessionObject so=new DemoSessionObject();
+			so.setLoginTime(System.currentTimeMillis());
+			so.setUserId("admin");
+			this.userSession().setSession(token, so);
 			return LoginObject.success(null);
 		}
 
