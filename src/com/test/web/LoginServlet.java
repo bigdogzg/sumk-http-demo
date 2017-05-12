@@ -12,7 +12,7 @@ import org.yx.http.filter.LoginObject;
 import org.yx.util.DateUtils;
 import org.yx.util.SBuilder;
 
-@Login
+@Login  //1.7.4之后，改为@Bean
 public class LoginServlet extends AbstractSessionFilter {
 
 	@Box
