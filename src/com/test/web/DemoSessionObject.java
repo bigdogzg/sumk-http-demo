@@ -15,8 +15,15 @@
  */
 package com.test.web;
 
+import java.util.Date;
+
 import org.yx.http.filter.SessionObject;
 
 public class DemoSessionObject extends SessionObject {
 
+	@Override
+	public String toString() {
+		return "DemoSessionObject [userId=" + userId + ", loginTime=" + new Date(loginTime) + "]";
+	}
+	
 }

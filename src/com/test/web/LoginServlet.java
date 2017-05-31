@@ -1,18 +1,13 @@
 package com.test.web;
 
-import java.util.Date;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 
+import org.yx.bean.Bean;
 import org.yx.bean.Box;
-import org.yx.http.Login;
 import org.yx.http.filter.AbstractSessionFilter;
 import org.yx.http.filter.LoginObject;
-import org.yx.util.DateUtils;
-import org.yx.util.SBuilder;
 
-@Login  //1.7.4之后，改为@Bean
+@Bean
 public class LoginServlet extends AbstractSessionFilter {
 
 	@Box

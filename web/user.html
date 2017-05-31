@@ -5,7 +5,6 @@
   <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
   <title>接口交互</title>
   <script type="text/javascript">
-  var sid; //这个变量保存的，实际上就是sessionid，如果有多张页面，要用cookie等方法，保存这个值
   function login(){
 	 var username=$('#username').val();
 	 var password=$('#password').val();
@@ -17,7 +16,6 @@
 	     dataType: "text", 
 	     data: '',
 	     success: function(data,status,xhr){
-			 sid=xhr.getResponseHeader("sid");  //相当于sessionid
 	         alert('登陆成功');
 		},
 		error:function(data){
@@ -28,18 +26,12 @@
 
   }
 
-   function userInfo(){
-	 if(!sid){
-		 alert('您还未登陆');
-		 return;
-	 }
-	 
+   function userInfo(){ 
 	 $.ajax({
 	     type: 'POST',
 	     url: 'webserver?act=userInfo' ,
 	     cache:false,
 	     dataType: "text",
-		 headers : {'sid':sid},
 	     data: '',
 	     success: function(data){
 	         alert('用户信息:'+data);

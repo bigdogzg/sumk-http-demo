@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="libs/http/commons-fileupload-1.3.1.jar"/>
+	<classpathentry kind="lib" path="libs/http/commons-io-2.2.jar"/>
+	<classpathentry kind="lib" path="libs/http/javax.servlet-api-3.1.0.jar"/>
+	<classpathentry kind="lib" path="libs/http/jetty-http-9.3.8.v20160314.jar"/>
+	<classpathentry kind="lib" path="libs/http/jetty-io-9.3.8.v20160314.jar"/>
+	<classpathentry kind="lib" path="libs/http/jetty-security-9.3.8.v20160314.jar"/>
+	<classpathentry kind="lib" path="libs/http/jetty-server-9.3.8.v20160314.jar"/>
+	<classpathentry kind="lib" path="libs/http/jetty-servlet-9.3.8.v20160314.jar"/>
+	<classpathentry kind="lib" path="libs/http/jetty-util-9.3.8.v20160314.jar"/>
+	<classpathentry kind="lib" path="libs/sumk-core/asm-all-5.0.3.jar"/>
+	<classpathentry kind="lib" path="libs/sumk-core/commons-dbcp2-2.1.1.jar"/>
+	<classpathentry kind="lib" path="libs/sumk-core/commons-pool2-2.4.2.jar"/>
+	<classpathentry kind="lib" path="libs/sumk-core/gson-2.5.jar"/>
+	<classpathentry kind="lib" path="libs/sumk-core/jcl-over-slf4j-1.7.21.jar"/>
+	<classpathentry kind="lib" path="libs/sumk-core/jedis-2.9.0.jar"/>
+	<classpathentry kind="lib" path="libs/sumk-core/mysql-connector-java-5.1.39.jar"/>
+	<classpathentry kind="lib" path="libs/sumk-core/slf4j-api-1.7.21.jar"/>
+	<classpathentry kind="lib" path="libs/sumk-core/slf4j-simple-1.7.21.jar"/>
+	<classpathentry kind="lib" path="libs/sumk-core/sumk-1.7.6.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
